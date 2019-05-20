@@ -1,55 +1,25 @@
 // JavaScript Document
-// Ajax para el envio de correo, en la opcion SALUDAME.
-$(document).ready(function(){
+$(document).ready(function(){ 
 
 	$(".formulario-contacto").bind("submit", function(){
-
-		$.ajax({
-			// Obtiene los elementos del formulario.
+		
+		$.ajax({  
 			type: $(this).attr("method"),
 			url: $(this).attr("action"),
-			data: $(this).serialize(),
+			data: $(this).serialize(), 
 			success: function(){
-				//Alerta de exito, en el caso que el mensaje se haya enviado correctamente.
 				$("#alerta").removeClass("hide").addClass("alert-success");
 				$(".respuesta").html("Enviado!");
 				$(".mensaje-alerta").html(" El mensaje ah sido enviado correctamente.");
-		
-				
-
-				if(JSON['clear']){
-
-					$('#form').each(function(){
-					this.reset();
-				});
-				}
 			},
 			error: function(){
-				//Alerta de fallo en caso de que el mensaje no haya sido enviado correctamente.
 				$("#alerta").removeClass("hide").addClass("alert-danger");
 				$(".respuesta").html("Error al enviar!");
 				$(".mensaje-alerta").html(" No pudimos enviar tu mensaje, intenta nuevamente.");
-				
-				
 			}
-			
-			
-
 		});
-		
-			$("#btnSend").click(function(event) {
-				$("#formulario-contacto")[0].reset();
-												});
-
 		return false;
-		
-	
-		
 	});
-	
-
-
-});
 
 
 	
