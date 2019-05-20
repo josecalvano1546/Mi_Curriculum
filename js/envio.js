@@ -17,6 +17,12 @@ $(document).ready(function(){
 		
 				
 
+				if(JSON['clear']){
+
+					$('#form').each(function(){
+					this.reset();
+				});
+				}
 			},
 			error: function(){
 				//Alerta de fallo en caso de que el mensaje no haya sido enviado correctamente.
@@ -28,13 +34,22 @@ $(document).ready(function(){
 			}
 			
 			
+
+		});
+		
+			$("#btnSend").click(function(event) {
+				$("#formulario-contacto")[0].reset();
+												});
+
+		return false;
+		
+	
+		
+	});
 	
 
 
 });
-
-	
-
 
 	
 
