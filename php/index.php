@@ -8,7 +8,7 @@ $comentario = $_POST['comments'];
 
 // Datos para el correo
 
-$destinatario = "josecalvano15462@gmail.com";
+$destinatario = "josecalvano1546@gmail.com";
 $asunto = "Contacto desde la pagina curriculum";
 
 $carta = "De: $nombre \n";
