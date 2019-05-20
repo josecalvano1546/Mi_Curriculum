@@ -1,12 +1,26 @@
+// JavaScript Document
+$(document).ready(function(){ 
 
-$(".formulario-contacto").submit(function(e) {
-  e.preventDefault();
-
-  var $form = $(this);
-  $.post($form.attr("action"), $form.serialize()).then(function() {
-    alert("Thank you!");
-  });
+	$(".formulario-contacto").bind("submit", function(){
+		
+		$.ajax({  
+			type: $(this).attr("method"),
+			url: $(this).attr("action"),
+			data: $(this).serialize(), 
+			success: function(){
+				$("#alerta").removeClass("hide").addClass("alert-success");
+				$(".respuesta").html("Enviado!");
+				$(".mensaje-alerta").html(" El mensaje ah sido enviado correctamente.");
+			},
+			error: function(){
+				$("#alerta").removeClass("hide").addClass("alert-danger");
+				$(".respuesta").html("Error al enviar!");
+				$(".mensaje-alerta").html(" No pudimos enviar tu mensaje, intenta nuevamente.");
+			}
+		});
+		return false;
+	});
 });
-	
+
 
 
